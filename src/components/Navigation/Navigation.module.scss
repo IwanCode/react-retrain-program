@@ -1,0 +1,35 @@
+.navigation-list {
+    text-transform: uppercase;
+    .navigation-btn {
+        display: inline-block;
+        cursor: pointer;
+        line-height: 30px;
+        color: black;
+        border: 1px solid black;
+        padding: 0 5px;
+        transition: .3s ease;
+        &:hover {
+            &:not(.disabled) {
+                background-color: #26a69a;
+                color: white;
+            }
+
+        }
+        &.disabled {
+            opacity: 0.6;
+        }
+
+    }
+    li {
+        display: inline-block;
+        & + li {
+            margin-left: 10px;
+        }
+    }
+}
+
+.navigation-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 5px;
+}

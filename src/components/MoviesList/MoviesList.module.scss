@@ -9,3 +9,10 @@
 .root-item {
   overflow: hidden;
 }
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    margin-left: 0 !important;
+  }
+}

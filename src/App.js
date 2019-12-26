@@ -31,6 +31,9 @@ function App() {
               <Route exact path="/movies/:id">
                 <Movie />
               </Route>
+              {/* <Route exact path="/movies/genre/:genreId">
+                asdfasdf
+              </Route> */}
               <Route exact path="/">
                 <Home />
               </Route>

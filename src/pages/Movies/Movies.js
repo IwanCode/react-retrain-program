@@ -1,7 +1,19 @@
-import React from 'react';
+// import React from 'react';
+// import classNames from 'classnames/bind';
+// import styles from './Movies.module.scss';
 
-function Movies() {
-  return <div>Movies</div>;
-}
+// import Navigation from '../../components/Navigation';
+// import MoviesList from '../../components/MoviesList';
 
-export default Movies;
+// const cx = classNames.bind(styles);
+
+// function Movies() {
+//   return (
+//     <div className={cx('movies-content')}>
+//       <Navigation />
+//       <MoviesList data={movies} />
+//     </div>
+//   );
+// }
+
+// export default Movies;

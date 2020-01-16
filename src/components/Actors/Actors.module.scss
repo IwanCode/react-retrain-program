@@ -1,0 +1,54 @@
+$description-padding: 5px;
+
+.actors-container {
+    margin-left: -$description-padding;
+    max-width: 650px;
+}
+
+.actors-list-views {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.actors-list-item {
+    position: relative;
+    display: inline-block;
+    flex-basis: 20%;
+    padding: 0 $description-padding;
+    img {
+        width: 100%;
+        border: 1px solid #e3e3e3;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.actors-item-description {
+    position: absolute;
+    bottom: 2px;
+    left: 5px;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    min-height: 40px;
+    width: calc(100% - 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+        z-index: 1;
+        text-align: center;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.4;
+        background-color: black;
+    }
+}

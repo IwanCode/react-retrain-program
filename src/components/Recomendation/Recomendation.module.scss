@@ -1,0 +1,35 @@
+.recomendation-list {
+    display: flex;
+    overflow-x: auto;
+    &-item {
+        display: inline-block;
+        padding: 0 5px !important;
+        position: relative;
+        img {
+            width: 100%;
+        }
+    }
+    &-views {
+        margin: 0 -5px;
+    }
+}
+
+.recomendation-item-description {
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    &.star-coverage {
+        padding: 5px 15px 5px 20px;
+        background-color: #ee6e73;
+        &:after {
+            content: '\2605';
+            position: absolute;
+            left: 7px;
+        }
+    }
+    span {
+        margin-left: 5px;
+        font-weight: bold;
+    }
+
+}

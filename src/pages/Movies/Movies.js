@@ -7,7 +7,7 @@
 
 // const cx = classNames.bind(styles);
 
-// function Movies() {
+// function Movies({movies}) {
 //   return (
 //     <div className={cx('movies-content')}>
 //       <Navigation />

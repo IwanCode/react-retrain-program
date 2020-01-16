@@ -10,10 +10,10 @@ const cx = classNames.bind(styles);
 
 function MoviesList({ data }) {
   return (
-    <ul className={cx('root', 'row', 'browser-default')}>
+    <ul className={cx('movies-list', 'root', 'row', 'browser-default')}>
       {data.results.map(({ id, poster_path, title }) => (
         <li className={cx('item', 'col', 's2')} key={id}>
-          <Link to={`movies/${id}`}>
+          <Link to={`/movies/${id}`}>
             <TMDPoster
               size={3}
               src={poster_path}

@@ -141,3 +141,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.main-wrapper {
+  display: inline-block;
+  max-height: calc(100vh - 66px);
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+}

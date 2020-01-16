@@ -15,7 +15,7 @@ function Navigation () {
             <ul className={cx('navigation-list')}>
                 {page !== '1' ? (
                     <li>
-                        <Link to={`/?page=${Number(page) - 1}`} className={cx('navigation-btn')}>Prev page</Link>
+                        <Link to={`?page=${Number(page) - 1}`} className={cx('navigation-btn')}>Prev page</Link>
                     </li>
                 ) : (
                     <li>
@@ -24,7 +24,7 @@ function Navigation () {
                     </li>
                 )}
                 <li>
-                    <Link to={`/?page=${Number(page) + 1}`} className={cx('navigation-btn')}>Next page</Link>
+                    <Link to={`?page=${Number(page) + 1}`} className={cx('navigation-btn')}>Next page</Link>
                 </li>
             </ul>
         </div>

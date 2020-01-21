@@ -15,8 +15,11 @@ import PopularMovies from './pages/PopularMovies';
 import Movie from './pages/Movie';
 import Login from './pages/Login';
 import Approve from './pages/Approve';
+import TVShows from './pages/TVShows';
+import TVShow from './pages/TVShow';
 import TMDConfigurationContext from './context/TMDConfigurationContext';
 import TMDSessionContext from './context/TMDSessionContext';
+import LoaderWrapper from './components/LoaderWrapper';
 
 function App() {
   return (
@@ -36,6 +39,12 @@ function App() {
                 <Route exact path="/movies/:id">
                   <Movie />
                 </Route>
+                <Route exact path="/tv/:id">
+                  <TVShow />
+                </Route>
+                <Route exact path="/tvshows">
+                  <TVShows />
+                </Route>
                 <Home>
                   <Route component={({ match }) => (
                     <>
@@ -46,6 +55,8 @@ function App() {
                 </Home>
                 <Route>Error</Route>
               </Switch>
+              {/* Spinner component */}
+              <LoaderWrapper />
             </div>
             
           </Router>

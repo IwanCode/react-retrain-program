@@ -8,7 +8,6 @@ import SearchItem from './SearchItem';
 const cx = classNames.bind(style);
 
 function HeaderSearchModal ({ searchOpen, placeholder, input, inputHandler, modalHandler, refData, inputDirty }) {
-    //const { data, loading } = useFetch(`movie/${id}/recommendations`);
     const [searchList, changeSearchList] = useState([[], [], []]);
     const debouncedSearchTerm = useDebounce(input, 500);
 

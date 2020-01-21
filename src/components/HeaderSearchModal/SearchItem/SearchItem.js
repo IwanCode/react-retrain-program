@@ -5,6 +5,8 @@ import classNames from 'classnames/bind';
 import styles from './SearchItem.module.scss';
 import { Link } from 'react-router-dom';
 import { drawRatingCircle } from '../../../services/helper';
+import { connect } from 'react-redux';
+import { searchAction } from '../../../actions/search.action';
 
 const cx = classNames.bind(styles);
 const config = {
@@ -16,7 +18,7 @@ const config = {
     }
 }
 
-function SearchItem ({data, closeEvent}) {
+function SearchItem ({data, searchAction}) {
     const searchItem = new HeaderSearchModel(data);
     let overview;
     useEffect(() => {
@@ -31,8 +33,10 @@ function SearchItem ({data, closeEvent}) {
         <li className={cx('search-list-item')}>
             <div className={cx('search-list-item_poster')}>
                 <Link to={`/movies/${searchItem.id}`} onClick={(e) => {
-                    
-                    //Dispatch event to close search modal
+                    searchAction({
+                        searchValue: '',
+                        searchOpen: false
+                    });
                 }}>
                     <TMDPoster size={2} src={searchItem.poster_path} alt={searchItem.title + ' poster'} />
                 </Link>
@@ -51,4 +55,14 @@ function SearchItem ({data, closeEvent}) {
     )
 }
 
-export default SearchItem;
+// export default SearchItem;
+
+// const mapStateToProps = (state) => ({
+//     headerSearch: state.test
+//   });
+  
+  const mapDispatchToProps = {
+    searchAction
+  }
+  
+  export default connect(null, mapDispatchToProps)(SearchItem);

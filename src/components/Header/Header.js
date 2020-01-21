@@ -6,17 +6,14 @@ import style from './Header.module.scss';
 import classNames from 'classnames/bind';
 import Search from '../Search';
 import HeaderSearchModal from '../HeaderSearchModal';
+import { connect } from 'react-redux';
+import { searchAction } from '../../actions/search.action';
+import { initialSearchState } from '../../constants/initialSearch';
 
 const cx = classNames.bind(style);
-const initialSearchState = {
-  searchValue: '',
-  searchDirty: false,
-  searchOpen: true
-};
 
-function Header() {
+function Header({ searchAction, headerSearch }) {
   const [inFlight, setFlightStatus] = useState(false);
-  const [searchState, changeSearchStatus] = useState(initialSearchState);
   const { isAuthenticated } = useTMDSessionContext();
   const containerRed = React.createRef();
   const requestToken = () => {
@@ -29,39 +26,30 @@ function Header() {
       );
     });
   };
+
   const searchToggle = (event) => {
-    // const target = event.target;
-    // console.log(target, target.hasClass('search-btn'));
-    changeSearchStatus((prevState) => {
-        return {
-          ...prevState,
-          searchOpen: !prevState.searchOpen
-        };
-    })
+    searchAction({
+      searchValue: '',
+      searchOpen: !headerSearch.searchOpen
+    });
   };
+
   const onInputChange = (e) => {
     const target = e.target;
-    changeSearchStatus((prevState) => {
-      return {
-        ...prevState,
-        searchDirty: true,
-        searchValue: target.value
-      }
+    
+    searchAction({
+      searchDirty: true,
+      searchValue: target.value
     });
-
-    // Get search results
-    // const { data, loading } = useFetch(`movie/${id}/recommendations`);
-
 
   }
   const onModalClick = (e) => {
     const target = e.target;
     
     if(target.contains(containerRed.current)) {
-      changeSearchStatus(initialSearchState)
+      searchAction(initialSearchState)
     }
   }
-
 
   return (
     <header className={cx('header')}>
@@ -71,7 +59,10 @@ function Header() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Search searchClick={searchToggle} data={searchState.searchOpen} />
+            <Link to="/tvshows">TV Shows</Link>
+          </li>
+          <li>
+            <Search searchClick={searchToggle} data={headerSearch.searchOpen} />
           </li>
           <li className={cx('header-list-right')}>
             <Link to="/login">Login</Link>
@@ -90,16 +81,24 @@ function Header() {
         </ul>
       </nav>
       <HeaderSearchModal 
-        searchOpen={searchState.searchOpen} 
+        searchOpen={headerSearch.searchOpen} 
         placeholder="Search for a movie"
-        input={searchState.searchValue}
+        input={headerSearch.searchValue}
         inputHandler={onInputChange}
         modalHandler={onModalClick}
         refData={containerRed}
-        inputDirty={searchState.searchDirty}
+        inputDirty={headerSearch.searchDirty}
       />
     </header>
   );
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+  headerSearch: state.search
+});
+
+const mapDispatchToProps = {
+  searchAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

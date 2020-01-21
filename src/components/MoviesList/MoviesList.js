@@ -8,12 +8,12 @@ import styles from './MoviesList.module.scss';
 
 const cx = classNames.bind(styles);
 
-function MoviesList({ data }) {
+function MoviesList({ data, target = 'movies' }) {
   return (
     <ul className={cx('movies-list', 'root', 'row', 'browser-default')}>
       {data.results.map(({ id, poster_path, title }) => (
         <li className={cx('item', 'col', 's2')} key={id}>
-          <Link to={`/movies/${id}`}>
+          <Link to={`/${target}/${id}`}>
             <TMDPoster
               size={3}
               src={poster_path}

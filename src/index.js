@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './global.scss';
+// import 'materialize-css/sass/materialize.scss';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

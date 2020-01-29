@@ -11,6 +11,7 @@ import { fetchGenres, fetchGenresWithSagas } from '../../actions/genres.action';
 // import Navigation from '../../components/Navigation';
 import Categories from '../../components/Categories';
 import styles from './Home.module.scss';
+import { api } from '../../services';
 
 const cx = classNames.bind(styles);
 
@@ -18,6 +19,10 @@ function Home({ movies, genres, fetchMoviesWithSagas, fetchGenresWithSagas, chil
   
   useEffect(() => {
     fetchGenresWithSagas({ url: `genre/movie/list` });
+    api.get(`http://localhost:4000/genres/movie/list`).then((data) => {
+      // changeShowsList(data)
+      console.log('data', data);
+    })
   }, [fetchGenresWithSagas]);
 
   return (genres.loading) ? (

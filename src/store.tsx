@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
+
 declare global {
   interface Window { __REDUX_DEVTOOLS_EXTENSION__: any; }
 }

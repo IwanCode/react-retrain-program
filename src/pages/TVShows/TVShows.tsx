@@ -4,12 +4,12 @@ import classNames from 'classnames/bind';
 import MoviesList from '../../components/MoviesList';
 import Navigation from '../../components/Navigation';
 import { api } from '../../services';
-// import { TvDiscoveryInterface } from '../../interfaces';
+import { ITvDiscovery } from '../../interfaces';
 
 const cx = classNames.bind(styles);
 
 const TVShows =  () => {
-    const [shows, setShows] = useState([]);
+    const [shows, setShows] = useState<ITvDiscovery>();
 
     useEffect(() => {
         api.get(`discover/tv`).then((data) => {
@@ -18,7 +18,7 @@ const TVShows =  () => {
 
     }, []);
 
-    return (!shows.results) ? (
+    return (!shows) ? (
         <>'Loading...'</>
       ) : (
         <div className={cx('shows-wrapper')}>

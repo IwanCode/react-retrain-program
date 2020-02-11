@@ -8,15 +8,22 @@ import TMDPoster from '../../components/TMDPoster';
 import { formatDate } from '../../services/date';
 import { drawRatingCircle } from '../../services/helper';
 // import Recomendation from '../../components/Recomendation';
+import { ITvItem, ITvItemCredits } from '../../interfaces';
 
 const cx = classNames.bind(styles);
+//[IMovieItem, IMovieCredits]
+type TTvFetch = {
+    // data: [ITvItem, ITvItemCredits] | null,
+    data: any,
+    loading: boolean
+  }
 
 function TVShow() {
     const { id } = useParams();
-    const { data, loading } = useAllFetch([`tv/${id}`, `tv/${id}/credits`]);
+    const { data, loading }: TTvFetch = useAllFetch([`tv/${id}`, `tv/${id}/credits`]);
 
     useEffect(() => {
-        if(!loading) {
+        if(!loading && data) {
             drawRatingCircle(data[0], 'ratingCircle');
         }
     }, [data, loading]);
@@ -24,8 +31,8 @@ function TVShow() {
     if (loading) {
         return <>'loading...'</>;
     }
-    const show = data[0];
-    const credits = data[1];
+    const show = data[0] as ITvItem;
+    const credits = data[1] as ITvItemCredits;
 
     return (
         <>
@@ -49,7 +56,7 @@ function TVShow() {
                         </div>
                         <div className={cx('movie-info-detail')}>
                             <h1>{show.name}</h1>
-                            <span>{formatDate(show.name.first_air_date, 'mm/dd/yy')}</span>
+                            <span>{formatDate(show.first_air_date, 'mm/dd/yy')}</span>
                         </div>
                     </div>
                     <hr></hr>

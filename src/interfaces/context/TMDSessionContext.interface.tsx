@@ -1,4 +1,4 @@
 export interface TMDSessionContextInterface {
-    children: any,
-    loadComponet?: any
+    children: any;
+    loadComponet?: any;
 }

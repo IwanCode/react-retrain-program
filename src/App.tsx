@@ -10,7 +10,6 @@ import TMDSessionContext from './context/TMDSessionContext';
 import Home from './pages/Home';
 import Genres from './pages/Genres';
 import PopularMovies from './pages/PopularMovies';
-// import Movies from './pages/Movies';
 import Movie from './pages/Movie';
 import Login from './pages/Login';
 import Approve from './pages/Approve';

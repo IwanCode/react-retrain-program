@@ -6,14 +6,14 @@ import { useFetch } from '../../hooks';
 import TMDPoster from '../TMDPoster';
 import SlickSlider from '../SlickSlider';
 import { Link } from 'react-router-dom';
-import { moviesRecomendationInterface } from '../../interfaces';
+import { IMoviesRecomendation } from '../../interfaces';
 
 const cx = classNames.bind(styles);
 
-function Recomendation () {
+const Recomendation = () => {
     const { id } = useParams();
     const { data, loading }: {
-        data: moviesRecomendationInterface,
+        data: IMoviesRecomendation,
         loading: boolean
     } = useFetch(`movie/${id}/recommendations`);
 
@@ -51,6 +51,5 @@ function Recomendation () {
         </div>
     )
 }
-
 
 export default Recomendation;

@@ -2,11 +2,11 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import style from './Actors.module.scss';
 import TMDPoster from "../TMDPoster";
-import { CastInterface } from '../../interfaces';
+import { TCastItem } from '../../types/cast.type';
 
 const cx = classNames.bind(style);
 
-function Actors ({data, items}: {data: CastInterface[], items: number}) {
+function Actors ({data, items}: {data: Partial<TCastItem>[], items: number}) {
     const actorsList = data.slice(0, items);
 
     return (

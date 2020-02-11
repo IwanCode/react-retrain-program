@@ -2,7 +2,7 @@ import { call, takeEvery, put } from 'redux-saga/effects';
 import { api } from '../services';
 import { fetchMoviesSuccess } from '../actions/movies.action';
 
-function* fetchMoviesStartWorker({ payload: { url } }) {
+function* fetchMoviesStartWorker({ payload: { url } }: any) {
     const data = yield call(api.get, url);
     yield put(fetchMoviesSuccess(data));
 }

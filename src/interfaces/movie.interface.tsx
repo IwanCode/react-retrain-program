@@ -1,5 +1,7 @@
 import { GenresMovieInterface } from './genres.interface';
 import { ICompanie } from './companies.interface';
+import { TCastItem } from '../types/cast.type';
+import { TCrewItem } from '../types/crew.type';
 
 type TSpokenLanguages = {
     iso_639_1: string;
@@ -9,27 +11,6 @@ type TSpokenLanguages = {
 type TProductionCountries = {
     iso_3166_1: string;
     name: string;
-}
-
-type TCastItem = {
-    cast_id: number;
-    character: string;
-    credit_id: string;
-    gender: number | null;
-    id: number;
-    name: string;
-    order: number;
-    profile_path: string | null;
-}
-
-type TCrewItem = {
-    credit_id: string;
-    departament: string;
-    gender: number | null;
-    id: number;
-    job: string;
-    name: string;
-    profile_path: string | null;
 }
 
 export interface IMovieItem {

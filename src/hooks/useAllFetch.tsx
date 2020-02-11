@@ -11,6 +11,7 @@ function useAllFetch(urls: string[]) {
     api.getAll(urls).then((data: any) => {
         setState({ data, loading: false });
     });
+    // eslint-disable-next-line
   }, [...urls]);
 
   return { ...state };

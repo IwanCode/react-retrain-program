@@ -1,4 +1,12 @@
-export function login (state, action) {
+import { IInitialLogin } from '../interfaces';
+
+type ActionType = {
+  type: string;
+  payload: any;
+  field: string
+}
+
+export function login (state: IInitialLogin, action: ActionType) {
     switch (action.type) {
       case 'field':
         return {

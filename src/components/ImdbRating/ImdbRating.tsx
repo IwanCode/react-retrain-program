@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFetch } from '../../hooks';
+// import { useFetch } from '../../hooks';
 import style from './ImdbRating.module.scss';
 import classNames from 'classnames/bind';
 
@@ -10,9 +10,10 @@ function ImdbRating ({ id } : {
 }) {
     return (
         <>
-            <a 
+            <a
                 href={`https://www.imdb.com/title/${id}`} 
                 target="_blank"
+                rel="noopener noreferrer"
                 className={cx('text')}
             >
                 IMDB

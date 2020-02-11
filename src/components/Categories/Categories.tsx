@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './Categories.module.scss';
 import classNames from 'classnames/bind';
 import { GenresMovieInterface } from '../../interfaces';

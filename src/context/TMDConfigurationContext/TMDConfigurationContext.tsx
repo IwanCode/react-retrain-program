@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from 'react';
 import { useFetch } from '../../hooks';
-import { TMDConfigurationContextInterface, ConfigurationApiInterface } from '../../interfaces';
+import { TMDConfigurationContextInterface } from '../../interfaces';
 
 const TMDConfigurationContext = createContext(null) as any;
 // const TMDConfigurationContext = createContext<ConfigurationApiInterface | null>(null);

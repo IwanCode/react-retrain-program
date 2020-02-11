@@ -2,7 +2,7 @@ import { call, takeEvery, put } from 'redux-saga/effects';
 import { api } from '../services';
 import { fetchGenresSuccess } from '../actions/genres.action';
 
-function* fetchGenresStartWorker({ payload: { url } }) {
+function* fetchGenresStartWorker({ payload: { url } }: any) {
     const data = yield call(api.get, url);
     yield put(fetchGenresSuccess(data));
 }

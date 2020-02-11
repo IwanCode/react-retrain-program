@@ -1,4 +1,4 @@
 export interface TMDConfigurationContextInterface {
-    children: any,
-    loadComponet?: any
+    children: any;
+    loadComponet?: any;
 }

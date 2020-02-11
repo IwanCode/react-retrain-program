@@ -1,10 +1,10 @@
-import { paginationInterface } from './pagination.interface';
+import { IPagination } from './pagination.interface';
 
-export interface moviesRecomendationInterface extends paginationInterface {
-    results: moviesListItemInterface[]
+export interface IMoviesRecomendation extends IPagination {
+    results: IMoviesListItem[];
 }
 
-export interface moviesListItemInterface {
+export interface IMoviesListItem {
     poster_path: string | null;
     popularity: number;
     id: number;

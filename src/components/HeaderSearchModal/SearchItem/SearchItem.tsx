@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { drawRatingCircle } from '../../../services/helper';
 import { connect, ConnectedProps } from 'react-redux';
 import { searchAction } from '../../../actions/search.action';
-import { SearchActionInterface } from '../../../interfaces';
+// import { SearchActionInterface } from '../../../interfaces';
 
 const cx = classNames.bind(styles);
 const config = {

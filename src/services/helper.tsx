@@ -1,38 +1,47 @@
-function getColor(value){
+function getColor(value: number){
     //value from 0 to 1
     var hue=((1-value)*120).toString(10);
     return ["hsl(",hue,",100%,50%)"].join("");
 };
 
-function numberWithCommas(x) {
+function numberWithCommas(x: number) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function drawRatingCircle(data: any, canvasId, config = {}) {
-    const canvas = document.getElementById(canvasId);
-    const ctx = canvas.getContext('2d');
+// type TCanvasConfig = {
+//     text?: {
+//         fillStyle: string;
+//     };
+//     background?: {
+//         strokeStyle: string;        
+//     };
+// }
+
+function drawRatingCircle(data: any, canvasId: string, config?: any) {
+    const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D | any;
     const x = canvas.width / 2;
     const y = canvas.height / 2;
     const radius = 20;
     const startAngle = 1.5 * Math.PI;
     const endAngleKey = data.vote_average / 5 + 1.5;
-    const endAngle = endAngleKey.toFixed(2) * Math.PI;
+    const endAngle = Number(endAngleKey.toFixed(2)) * Math.PI;
     const endAngleFull = 3.5 * Math.PI;
     const anticlockwise = false;
     const rating = data.vote_average * 10;
-    const getTextStartAngle = (rating) => rating < 10 ? x - 4 : x - 9;
-    const getPercentStartAngle = (rating) => rating < 10 ? 10 : 17;
+    const getTextStartAngle = (rating: number) => rating < 10 ? x - 4 : x - 9;
+    const getPercentStartAngle = (rating: number) => rating < 10 ? 10 : 17;
     const yPath = y + 7;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //Fill text in circle
     ctx.beginPath();
     ctx.font = 'bold 16px sans-serif';
-    if (config.text) {
+    if (config && config.text) {
         for(let param in config.text) {
             ctx[param] = config.text[param];
         }
     }
-    ctx.fillText(rating, getTextStartAngle(rating), yPath);
+    ctx.fillText(String(rating), getTextStartAngle(rating), yPath);
     //Fill % in text circle
     ctx.beginPath();
     ctx.font = 'bold 8px sans-serif';
@@ -42,7 +51,7 @@ function drawRatingCircle(data: any, canvasId, config = {}) {
     ctx.arc(x, y, radius, startAngle, endAngleFull, anticlockwise);
     ctx.lineWidth = 5;
     ctx.strokeStyle = 'rgba(0,0,0,0.3)';
-    if (config.background) {
+    if (config && config.background) {
         for(let param in config.background) {
             ctx[param] = config.background[param];
         }

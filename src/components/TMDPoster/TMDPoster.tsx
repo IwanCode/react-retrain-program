@@ -4,7 +4,7 @@ import { useTMDContext } from '../../context/TMDConfigurationContext';
 
 function TMDPoster({ size, src, ...restProps }: {
   size: number,
-  src: string | null,
+  src: any,
   alt?: string,
   className?: string
 }) {

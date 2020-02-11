@@ -7,10 +7,10 @@ import { fetchMovies, fetchMoviesWithSagas } from '../../actions/movies.action';
 import MoviesList from '../../components/MoviesList';
 import Navigation from '../../components/Navigation';
 // import Categories from '../../components/Categories';
-import { moviesRecomendationInterface } from '../../interfaces';
+import { IMoviesRecomendation } from '../../interfaces';
 
 interface GenresState {
-  movies: moviesRecomendationInterface
+  movies: IMoviesRecomendation
 }
 
 const mapStateToProps = (state: GenresState) => {

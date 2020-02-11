@@ -2,7 +2,7 @@ import { BASE_URL, BASE_HOST } from '../constants';
 import appConfig from '../appConfig.json';
 
 class Api {
-  interceptUrl(url) {
+  interceptUrl(url: string) {
     let urlIsValid = true;
 
     try {
@@ -16,7 +16,7 @@ class Api {
     }
   }
 
-  generateFullUrl(url) {
+  generateFullUrl(url: string) {
     const urlObj = this.interceptUrl(url);
 
     if(urlObj.host === BASE_HOST) {
@@ -26,14 +26,14 @@ class Api {
     return urlObj.toString();
   }
 
-  get = async (url) => {
+  get = async (url: string) => {
     const response = await fetch(this.generateFullUrl(url));
     const data = await response.json();
 
     return data;
   };
 
-  getAll = async (urls) => {
+  getAll = async (urls: string[]) => {
     return Promise.all(urls.map(url => {
       return fetch(this.generateFullUrl(url)).then(data => data.json())
     }))

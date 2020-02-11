@@ -16,5 +16,10 @@
   flex-wrap: wrap;
   li {
     margin-left: 0 !important;
+    position: relative;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
 }

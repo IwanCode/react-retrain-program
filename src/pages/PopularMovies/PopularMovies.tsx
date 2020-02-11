@@ -10,12 +10,12 @@ import { fetchMovies, fetchMoviesWithSagas } from '../../actions/movies.action';
 import MoviesList from '../../components/MoviesList';
 import Navigation from '../../components/Navigation';
 import styles from './PopularMovies.module.scss';
-import { moviesRecomendationInterface } from '../../interfaces';
+import { IMoviesRecomendation } from '../../interfaces';
 
 const cx = classNames.bind(styles);
 
 interface MooviesState {
-  movies: moviesRecomendationInterface
+  movies: IMoviesRecomendation
 }
 
 const mapStateToProps = (state: MooviesState) => {

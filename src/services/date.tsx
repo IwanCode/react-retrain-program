@@ -1,4 +1,4 @@
-function formatDate (date, format) {
+function formatDate (date: string, format: string) {
     const monthNames = [
         "January", "February", "March",
         "April", "May", "June", "July",
@@ -9,7 +9,7 @@ function formatDate (date, format) {
         dd : new Date(date).getDate(),
         mm : new Date(date).getMonth(),
         yy : new Date(date).getFullYear()
-      };
+      } as any;
 
       const formatList = format.split('/');
 

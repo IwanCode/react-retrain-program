@@ -1,9 +1,9 @@
 export interface IInitialLogin {
-    password: FieldStateType,
-    email: FieldStateType
+    password: FieldStateType;
+    email: FieldStateType;
 }
 
 export type FieldStateType = {
-    value: string,
-    touched: boolean
+    value: string;
+    touched: boolean;
 }

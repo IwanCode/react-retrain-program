@@ -5,12 +5,12 @@ import classNames from 'classnames/bind';
 import TMDPoster from '../TMDPoster';
 
 import styles from './MoviesList.module.scss';
-import { TvDiscoveryInterface, moviesRecomendationInterface } from '../../interfaces';
+// import { ITvDiscovery, IMoviesRecomendation } from '../../interfaces';
 
 const cx = classNames.bind(styles);
 
 function MoviesList({ data, target = 'movies' }: {
-  // data: TvDiscoveryInterface | moviesRecomendationInterface,
+  // data: ITvDiscovery | IMoviesRecomendation,
   data: any,
   target?: string
 }) {
